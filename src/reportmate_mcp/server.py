@@ -12,10 +12,11 @@ from typing import Any
 
 from fastmcp import FastMCP
 
+from . import __version__
 from .client import ReportMateClient
 from .config import Config
 
-mcp = FastMCP("reportmate")
+mcp = FastMCP("reportmate", version=__version__)
 
 # The ten collection modules, matching the dashboard tabs. Fleet reports and
 # per-device module documents both address a module by one of these names
