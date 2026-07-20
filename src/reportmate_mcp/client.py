@@ -2,17 +2,12 @@
 
 from __future__ import annotations
 
-from importlib.metadata import PackageNotFoundError, version
 from typing import Any
 
 import httpx
 
+from . import __version__
 from .config import Config
-
-try:
-    _VERSION = version("reportmate-mcp")
-except PackageNotFoundError:  # running from a source checkout
-    _VERSION = "0.0.0"
 
 
 class ReportMateClient:
@@ -22,7 +17,7 @@ class ReportMateClient:
             headers={
                 **config.auth_header(),
                 "Accept": "application/json",
-                "User-Agent": f"reportmate-mcp/{_VERSION}",
+                "User-Agent": f"reportmate-mcp/{__version__}",
             },
             timeout=30.0,
         )
