@@ -1,6 +1,6 @@
 [project]
 name = "reportmate-mcp"
-version = "0.1.0"
+dynamic = ["version"]
 description = "ReportMate MCP server - expose your device fleet to AI agents"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -16,6 +16,9 @@ reportmate-mcp = "reportmate_mcp.__main__:main"
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+[tool.hatch.version]
+path = "src/reportmate_mcp/__init__.py"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/reportmate_mcp"]

@@ -8,20 +8,31 @@ Built on [FastMCP](https://github.com/jlowin/fastmcp). It is a thin layer over t
 
 Read-only and intent-shaped (not one-per-endpoint), to keep the agent's toolset legible:
 
-- `search_devices(query)` — list/filter the fleet
-- `get_device(serial_number)` — full record for one device
+- `search_devices(query, limit)` — list/filter the fleet
+- `get_device(serial_number)` — full record (all modules) for one device
+- `get_device_module(serial_number, module)` — one module document for one device
+- `module_report(module)` — fleet-wide report for a module (inventory, installs, applications, system, management, identity, hardware, peripherals, security, network)
 - `fleet_summary()` — high-level counts and health
 - `application_usage()` — fleet-wide app utilization
 - `recent_events(limit)` — recent errors / warnings / check-ins
+- `api_health()` — API readiness incl. a database probe
 
 Mutations (archive/delete) are intentionally omitted from the default server.
 
 ## Configure
 
+A scoped API key is the preferred credential; the shared client passphrase also works:
+
 ```
 export REPORTMATE_API_URL=https://api.reportmate.app
+export REPORTMATE_API_KEY=rm_yourclient_yoursecret
+```
+
+```
 export REPORTMATE_PASSPHRASE=your-passphrase
 ```
+
+A read-scoped key is the right fit — this server exposes only read tools.
 
 ## Run
 
@@ -32,10 +43,10 @@ uv run reportmate-mcp
 Or via container:
 
 ```
-docker run --rm -e REPORTMATE_API_URL -e REPORTMATE_PASSPHRASE ghcr.io/reportmate/reportmate-mcp
+docker run --rm -e REPORTMATE_API_URL -e REPORTMATE_API_KEY ghcr.io/reportmate/reportmate-mcp
 ```
 
-Register it with an MCP client (e.g. Claude Desktop) by pointing the client at the `reportmate-mcp` command with the two environment variables set.
+Register it with an MCP client (e.g. Claude Desktop) by pointing the client at the `reportmate-mcp` command with the environment variables set.
 
 ## License
 
