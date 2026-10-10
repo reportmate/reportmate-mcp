@@ -1,6 +1,6 @@
 # reportmate-mcp
 
-A [Model Context Protocol](https://modelcontextprotocol.io) server for [ReportMate](https://reportmate.app). It exposes your device fleet to AI agents (Claude and others) as a small, curated set of read-only tools — so you can ask your fleet questions in natural language: *"which Macs are missing FileVault?"*, *"what changed on device 0F33V9G25083HJ?"*, *"show stale check-ins."*
+A [Model Context Protocol](https://modelcontextprotocol.io) server for [ReportMate](https://reportmate.app). It exposes your device fleet to AI agents (Claude and others) as a small, curated set of read-only tools — so you can ask your fleet questions in natural language: *"which Macs are missing FileVault?"*, *"what changed on device C00EXAMPLE001?"*, *"show stale check-ins."*
 
 Built on [FastMCP](https://github.com/jlowin/fastmcp). It is a thin layer over the ReportMate REST API (`/api/v1/*`) — the same language as the API, so request/response models can be shared over time.
 
