@@ -48,6 +48,8 @@ docker run --rm -e REPORTMATE_API_URL -e REPORTMATE_API_KEY ghcr.io/reportmate/r
 
 Register it with an MCP client (e.g. Claude Desktop) by pointing the client at the `reportmate-mcp` command with the environment variables set.
 
+Development guide: [wiki](wiki/README.md)
+
 ## License
 
 AGPL-3.0-or-later. A commercial license is available — see [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md).
